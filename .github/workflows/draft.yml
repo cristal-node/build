@@ -1,0 +1,23 @@
+name: build
+
+on: workflow_dispatch
+  
+jobs:
+  main:
+    name: draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v2
+        with:
+          ref: branch
+          
+      - name: draft
+        run: |
+          echo draft
+          exit 1
+
+      - name: Upload files
+        uses: actions/upload-artifact@v2
+        with:
+          path: dump
