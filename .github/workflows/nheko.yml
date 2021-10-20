@@ -14,11 +14,13 @@ jobs:
           # ref: main
 
       - name: repo
-        run:  |
-          sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal main" >>/etc/apt/sources.list.d/qtnew.list
-          sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal universe" >>/etc/apt/sources.list.d/qtnew.list
-          sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal multiverse" >>/etc/apt/sources.list.d/qtnew.list
-          sudo apt update
+        run:  sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal main" >>/etc/apt/sources.list.d/qtnew.list
+      - name: repo 2
+        run:  sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal universe" >>/etc/apt/sources.list.d/qtnew.list
+      - name: repo 3
+        run:  sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal multiverse" >>/etc/apt/sources.list.d/qtnew.list
+      - name: update
+        run:  sudo apt update
 
 
       - name: dependencies
