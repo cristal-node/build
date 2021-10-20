@@ -14,7 +14,8 @@ jobs:
           # ref: main
           
       - name: dependencies
-        run: sudo apt policy \
+        run: |
+          sudo apt policy \
                 g++ cmake zlib1g-dev libssl-dev \
                 qt{base,declarative,tools,multimedia,quickcontrols2-}5-dev \
                 libqt5svg5-dev libboost-system-dev libboost-thread-dev \
