@@ -15,8 +15,13 @@ jobs:
 
       - name: repo
         run:  |
-          find /etc/apt -type f
-          cat /etc/apt/sources.list
+          # find /etc/apt -type f
+          # cat /etc/apt/sources.list
+          sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal main" >>/etc/apt/sources.list
+          sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal universe" >>/etc/apt/sources.list
+          sudo echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal multiverse" >>/etc/apt/sources.list
+          sudo apt update
+
 
       - name: dependencies
         run: |
