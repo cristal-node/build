@@ -14,11 +14,11 @@ jobs:
           # ref: main
 
       - name: repo
-        run:  echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal main" |sudo tee /etc/apt/sources.list.d/qtnew.list
+        run:  echo "deb http://azure.archive.ubuntu.com/ubuntu/ impish main" |sudo tee /etc/apt/sources.list.d/qtnew.list
       - name: repo 2
-        run:  echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal universe" |sudo tee /etc/apt/sources.list.d/qtnew.list
+        run:  echo "deb http://azure.archive.ubuntu.com/ubuntu/ impish universe" |sudo tee /etc/apt/sources.list.d/qtnew.list
       - name: repo 3
-        run:  echo "deb http://azure.archive.ubuntu.com/ubuntu/ focal multiverse" |sudo tee /etc/apt/sources.list.d/qtnew.list
+        run:  echo "deb http://azure.archive.ubuntu.com/ubuntu/ impish multiverse" |sudo tee /etc/apt/sources.list.d/qtnew.list
       - name: update
         run:  sudo apt update
 
