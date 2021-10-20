@@ -1,0 +1,29 @@
+name: nheko debian build
+
+on: workflow_dispatch
+  
+jobs:
+  ubuntu:
+    name: main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v2
+        with:
+          repository: Nheko-Reborn/nheko
+          # ref: main
+          
+      - name: dependencies
+        run: sudo apt policy \
+                g++ cmake zlib1g-dev libssl-dev \
+                qt{base,declarative,tools,multimedia,quickcontrols2-}5-dev \
+                libqt5svg5-dev libboost-system-dev libboost-thread-dev \
+                libboost-iostreams-dev libolm-dev liblmdb++-dev libcmark-dev \
+                nlohmann-json3-dev libspdlog-dev libgtest-dev \
+                qml-module-qt{gstreamer,multimedia,quick-extras,-labs-settings,-labs-platform,graphicaleffects,quick-controls2} \
+                qt5keychain-dev libevent-dev libcurl-dev
+
+      # - name: Upload files
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     path: dump
