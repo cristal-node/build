@@ -31,7 +31,12 @@ jobs:
                 qml-module-qt{gstreamer,multimedia,quick-extras,-labs-settings,-labs-platform,graphicaleffects,quick-controls2} \
                 qt5keychain-dev libevent-dev libcurl4-gnutls-dev
 
-      # - name: Upload files
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     path: dump
+      - name: build
+        run:  |
+          cmake -S. -Bbuild -DHUNTER_ENABLED=ON -DBUILD_SHARED_LIBS=OFF -DUSE_BUNDLED_OPENSSL=OFF
+          cmake --build build --config Release
+
+      - name: Upload files
+        uses: actions/upload-artifact@v2
+        with:
+          path: build
