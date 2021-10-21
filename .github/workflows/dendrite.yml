@@ -2,9 +2,9 @@ name: dendrite-build
 
 on:
   workflow_dispatch:
-  push:
-    branches:    
-      - dendrite
+  # push:
+  #   branches:
+  #     - dendrite
   
 jobs:
   main:
