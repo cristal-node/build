@@ -18,7 +18,7 @@ jobs:
           ref: v0.5.0
 
       - name: download go
-        run: curl https://golang.org/dl/go1.17.2.linux-amd64.tar.gz -o /tmp/go.tar.gz
+        run: curl 'https://dl.google.com/go/go1.17.2.linux-amd64.tar.gz' -o /tmp/go.tar.gz
 
       - name: extract go
         run:  sudo tar -C /usr -xzf /tmp/go.tar.gz --strip-components 1
