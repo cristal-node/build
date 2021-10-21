@@ -1,0 +1,32 @@
+name: dendrite-build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:    
+      - dendrite
+  
+jobs:
+  main:
+    name: draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v2
+        with:
+          repository: matrix-org/dendrite
+          ref: v0.5.0
+
+      - name: download go
+        run: curl https://golang.org/dl/go1.17.2.linux-amd64.tar.gz -o /tmp/go.tar.gz
+
+      - name: extract go
+        run:  sudo tar -C /usr -xzf /tmp/go.tar.gz --strip-components 1
+
+      - name: build
+        run:  bash build.sh
+
+      - name: Upload files
+        uses: actions/upload-artifact@v2
+        with:
+          path: bin
